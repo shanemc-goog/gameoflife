@@ -1,5 +1,7 @@
 # Conway's Game of Life XP Retreat Exercise
 
+
+
 Conway's Game of Life is a 0-player computer game, meaning the evolution of the
 game is entirely determined by the game's initial state. For more information on
 the game including its rules see
