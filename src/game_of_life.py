@@ -5,7 +5,10 @@ class GameOfLife():
         print("I don't do much, yet.")
 
     def isAlive(self, map, x, y):
-      return False
+       return map[x][y] ==1
+
+
+        
 
 if __name__ == "__main__":
     GameOfLife().run()

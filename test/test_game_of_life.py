@@ -20,7 +20,7 @@ class GameOfLifeTest(unittest.TestCase):
       game = GameOfLife()
       map = [[0,1],[0,0]]
 
-      self.assertTrue(game.isAlive(map, 0, 0))
+      self.assertFalse(game.isAlive(map, 0, 0))
 
     def test_template(self):
         game = GameOfLife()
