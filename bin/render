@@ -1,0 +1,52 @@
+#! /usr/bin/env -S python3 -u
+
+import curses
+import sys
+
+class Renderer():
+  def __init__(self, screen):
+    self.screen = screen
+    self.screen_height_offset = round(curses.LINES / 2)
+    self.screen_width_offset = round(curses.COLS / 2)
+
+  def run(self):
+    curses.curs_set(False)
+
+    try:
+      while True:
+        line = sys.stdin.readline()
+
+        if line == '':
+          exit()
+        else:
+          self.display_line(line)
+
+    except KeyboardInterrupt:
+      exit()
+
+  def display_line(self, line):
+    self.screen.erase()
+
+    for raw_point in line.strip().split(' '):
+      self.light_point(raw_point)
+
+    self.screen.refresh()
+
+  def light_point(self, raw_point):
+    raw_x, raw_y = map(int, raw_point.split(','))
+
+    x = raw_x + self.screen_width_offset
+    y = raw_y + self.screen_height_offset
+
+    if (x < 0 or x > (curses.COLS - 1) or
+        y < 0 or y > (curses.LINES - 1)):
+      return
+
+    self.screen.addstr(y, x, "#")
+
+def main(screen):
+  app = Renderer(screen)
+  app.run()
+
+if __name__ == '__main__':
+  curses.wrapper(main)
