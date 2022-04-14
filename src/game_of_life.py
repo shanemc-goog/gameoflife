@@ -7,7 +7,8 @@ class GameOfLife():
     def isAlive(self, map, x, y):
        return map[x][y] ==1
 
-
+def how_many_neighbors(self,map,x,y)
+return 1
         
 
 if __name__ == "__main__":

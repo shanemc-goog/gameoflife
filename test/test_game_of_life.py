@@ -22,6 +22,19 @@ class GameOfLifeTest(unittest.TestCase):
 
       self.assertFalse(game.isAlive(map, 0, 0))
 
+    def test_how_many_neighbor(self):
+        game=GameOfLife()
+        map = [[1,0],[1,0]]
+
+        self.assertEqual(game.how_many_neighbor(map,0,0),1);
+
+        map1 = [[0,1,0],[1,1,0],[0,1,0]]
+
+        self.assertEquals(game.how_many_neighbors(map1,1,1),3)
+
+
+
+
     def test_template(self):
         game = GameOfLife()
         fake_stdout = io.StringIO()
