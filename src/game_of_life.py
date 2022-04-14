@@ -26,6 +26,8 @@ class GameOfLife():
 
       return sum
 
+    def determine_new_state(self,map,x,y):
+      return True
 
 if __name__ == "__main__":
     GameOfLife().run()

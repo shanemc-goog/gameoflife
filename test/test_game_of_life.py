@@ -26,14 +26,35 @@ class GameOfLifeTest(unittest.TestCase):
         game=GameOfLife()
         map = [[1,0],[1,0]]
 
-        self.assertEqual(game.how_many_neighbor(map,0,0),1);
+        self.assertEqual(game.how_many_neighbor(map,0,0),1)
 
         map1 = [[0,1,0],[1,1,0],[0,1,0]]
 
         self.assertEquals(game.how_many_neighbor(map1,1,1),3)
 
+    def test_determine_new_state_dies_lonely(self):
+        game=GameOfLife()
 
+        map1 = [[0,1,0],[1,1,0],[0,1,0]]
 
+        
+        self.assertFalse(game.determine_new_state(map,2,2))
+
+    def test_determine_new_state_lives(self):
+        game=GameOfLife()
+
+        map1 = [[0,1,0],[1,1,0],[0,1,0]]
+
+        
+        self.assertTrue(game.determine_new_state(map,1,1))
+
+    def test_determine_new_state_dies_overpopulated(self):
+        game=GameOfLife()
+
+        map1 = [[0,1,0],[1,1,1],[0,1,0]]
+
+        
+        self.assertFalse(game.determine_new_state(map,2,2))
 
     def test_template(self):
         game = GameOfLife()
