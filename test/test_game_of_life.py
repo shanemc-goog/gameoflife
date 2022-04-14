@@ -30,7 +30,7 @@ class GameOfLifeTest(unittest.TestCase):
 
         map1 = [[0,1,0],[1,1,0],[0,1,0]]
 
-        self.assertEquals(game.how_many_neighbors(map1,1,1),3)
+        self.assertEquals(game.how_many_neighbor(map1,1,1),3)
 
 
 
